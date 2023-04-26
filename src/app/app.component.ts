@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './shared/services/auth/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,11 @@ export class AppComponent {
   title = 'workout-tracker';
   theme: string;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.theme = 'light';
   }
   ngOnInit() {
+    this.userService.currentUser();
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       this.theme = savedTheme;

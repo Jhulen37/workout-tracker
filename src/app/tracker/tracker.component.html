@@ -1,0 +1,51 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8 text-center">Workout Tracker</h1>
+
+  <form (submit)="addWorkout()" class="flex flex-wrap justify-center mb-8">
+    <select
+      [(ngModel)]="workoutName"
+      name="workout"
+      class="mb-4 w-full sm:w-auto p-2 bg-white rounded-md border border-gray-300"
+    >
+      <option *ngFor="let workout of popularWorkouts" [ngValue]="workout.name">
+        {{ workout.name }}
+      </option>
+    </select>
+    <input
+      [(ngModel)]="workoutDuration"
+      name="duration"
+      type="number"
+      placeholder="Duration (minutes)"
+      class="mb-4 w-full sm:w-auto p-2 bg-white rounded-md border border-gray-300"
+    />
+    <input
+      [(ngModel)]="workoutSets"
+      name="sets"
+      type="number"
+      placeholder="Sets"
+      class="mb-4 w-full sm:w-auto p-2 bg-white rounded-md border border-gray-300"
+    />
+    <button type="submit" class="mb-4 p-2 bg-teal-500 text-white rounded-md">
+      Add Workout
+    </button>
+  </form>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div
+      *ngFor="let workout of workouts"
+      class="bg-white rounded-md shadow-lg p-4"
+    >
+      <img
+        [src]="getImageForWorkout(workout.name)"
+        class="w-full h-48 object-cover rounded-md"
+      />
+      <h2 class="text-xl font-semibold">{{ workout.name }}</h2>
+      <p class="text-gray-500">Duration: {{ workout.duration }} minutes</p>
+      <p class="text-gray-500">Sets: {{ workout.sets }}</p>
+      <p class="text-gray-500">Date: {{ workout.date | date : "short" }}</p>
+    </div>
+  </div>
+</div>
+<div *ngFor="let workout of db_workouts | async">
+  {{ workout.name }}
+</div>

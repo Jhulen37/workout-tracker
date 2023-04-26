@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/services/auth/user/user.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,7 +23,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   public showDropdown: boolean = false;
-  constructor() {}
+  public user$ = this.userService.getUser();
+  loggedIn(): boolean {
+    // Your authentication logic here
+    return Boolean(localStorage.getItem('token'));
+  }
+
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 }

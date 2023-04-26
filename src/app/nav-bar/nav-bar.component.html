@@ -1,4 +1,4 @@
-<nav
+<!-- <nav
   class="bg-sky-500 dark:bg-black transition-colors ease-in-out duration-150"
 >
   <div
@@ -38,7 +38,7 @@
       <ul
         class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
       >
-        <li>
+        <li *ngIf="!(user$ | async)">
           <a
             routerLink="login"
             routerLinkActive="bg-sky-800  "
@@ -47,7 +47,7 @@
             >Login</a
           >
         </li>
-        <li>
+        <li *ngIf="!(user$ | async)">
           <a
             routerLink="signup"
             routerLinkActive="bg-sky-800 "
@@ -70,18 +70,107 @@
             class="h-48 w-80 rounded-2xl p-4 bg-gray-100 shadow-md mt-2 absolute grid grid-cols-3 gap-4 text-center"
             *ngIf="showDropdown"
           >
+            <div
+              class="cursor-pointer hover:text-gray-600"
+              routerLink="/workouts"
+            >
+              Workouts
+            </div>
+            <div class="cursor-pointer hover:text-gray-600" routerLink="/meals">
+              Meals
+            </div>
             <div>Hello</div>
+            <div
+              class="cursor-pointer hover:text-gray-600"
+              routerLink="/tracker"
+            >
+              Gym Journal
+            </div>
             <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
+            <div class="cursor-pointer hover:text-gray-600" routerLink="/about">
+              About
+            </div>
+            <div class="cursor-pointer hover:text-gray-600" routerLink="/tips">
+              Tips
+            </div>
           </div>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
+
+<header class="bg-gray-900 text-white py-4">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <div>
+      <img
+        src="https://www.svgrepo.com/show/490708/dumbbell.svg"
+        alt="Gym Genie Logo"
+        class="h-10"
+      />
+    </div>
+    <nav>
+      <ul class="flex space-x-4">
+        <li class="nav-item">
+          <a
+            routerLink=""
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/workouts"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >Workouts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/meals"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >Nutrition</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/tracker"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >Progress</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/about"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >About Us</a
+          >
+        </li>
+        <li *ngIf="!(user$ | async)">
+          <a
+            routerLink="login"
+            routerLinkActive="bg-sky-800  "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            aria-current="page"
+            >Login</a
+          >
+        </li>
+
+        <li *ngIf="!(user$ | async)">
+          <a
+            routerLink="signup"
+            routerLinkActive="bg-sky-800 "
+            class="text-white py-2 px-3 transition-colors duration-300 ease-in-out rounded-lg"
+            >Signup</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

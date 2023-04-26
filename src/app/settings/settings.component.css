@@ -1,0 +1,9 @@
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.app-settings:hover,
+.app-settings:focus,
+.app-settings.selected {
+  cursor: pointer;
+  color: #000;
+}

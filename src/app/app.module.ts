@@ -10,6 +10,15 @@ import { SignupComponent } from './features/auth/signup/signup.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WorkoutsComponent } from './workouts/workouts.component';
+import { AboutComponent } from './about/about.component';
+import { MealsComponent } from './meals/meals.component';
+import { TrackerComponent } from './tracker/tracker.component';
+import { TipsComponent } from './tips/tips.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +28,23 @@ import { HttpClientModule } from '@angular/common/http';
     HeartComponent,
     SignupComponent,
     LoginComponent,
+    WorkoutsComponent,
+    AboutComponent,
+    MealsComponent,
+    TrackerComponent,
+    TipsComponent,
+    ProfileComponent,
+    SettingsComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
